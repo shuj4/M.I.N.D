@@ -3,36 +3,35 @@
 
 **HackPrix 2025 entry by shuj4**
 
-A smart interactive system bridging Python GUI and Arduino/C++ for cursor control and user interaction.
+A Brain-Computer Interface (BCI) that enables cursor control using EEG brainwaves, powered by Arduino and a Python-based system.
 
 ---
 
 ## 🧠 Project Overview
 
-M.I.N.D (Machine Interface for Navigational Device) is a hybrid hardware–software solution designed for intuitive cursor control. Developed during HackPrix 2025, it integrates:
+M.I.N.D (Mental Interface for Neural Direction) is a brain-controlled interface designed to interpret EEG signals and translate them into real-time cursor movements. Developed during HackPrix 2025, the system bridges hardware and software using:
 
-- **Arduino/C++** firmware to interpret sensor or input signals
-- **Python-based GUI** for user interaction and control
-- Coordination scripts to translate hardware input into actionable cursor or system commands
+- **Arduino** to capture and transmit EEG brainwave signals
+- **Python-based GUI and scripts** to process signals and control the cursor
+- Real-time interaction loop between brain input and system output
 
 ---
 
 ## 🗂️ Repository Contents
 
-- **Hackcode.ino** – Arduino firmware core
+- **Hackcode.ino** – Arduino firmware for signal reading
 - **cursor.py** – Python script for cursor movement logic
-- **cursor_control.py** – High-level control of cursor based on parsed input
-- **gui.py** – User interface to configure, monitor, and interact
-- (Potentially other helper modules under review)
+- **cursor_control.py** – Converts signal data into actionable movement
+- **gui.py** – Basic interface for monitoring status and signal flow
 
 ---
 
 ## ⚙️ Key Features
 
-- Real-time cursor control from custom hardware
-- Modular structure separating firmware, logic, and interface
-- Lightweight GUI for configuration and monitoring
-- Easily extendable for additional functionalities or sensors
+- Real-time cursor movement through EEG brainwave input
+- Seamless hardware-software communication using serial data
+- Designed for minimal user intervention post-setup
+- Fully Python-driven interaction system
 
 ---
 
@@ -40,80 +39,52 @@ M.I.N.D (Machine Interface for Navigational Device) is a hybrid hardware–softw
 
 ### 1. Requirements
 
-- **Arduino IDE** (or compatible)
+- **Arduino IDE**
 - **Python 3.7+**
-- Python dependencies (install via pip):
+- Install dependencies:
   ```bash
   pip install pyserial PySimpleGUI pyautogui
   ```
-- USB connection to your Arduino-compatible board
 
-### 2. Setup Hardware
+### 2. Setup
 
-1. Connect sensors or input devices to Arduino as defined in `Hackcode.ino`
-2. Upload the firmware to your board
-
-### 3. Configure and Run
-
-1. Launch the Python GUI:
+1. Upload `Hackcode.ino` to your Arduino
+2. Connect your EEG input device to the board
+3. Run the GUI:
    ```bash
    python gui.py
    ```
-2. GUI options for:
-   - Selecting COM port / baud rate
-   - Starting/stopping the serial reader
-   - Calibrating input signals
-   - Testing cursor movement
-3. Internally, `cursor_control.py` listens for input values, processes them, and uses `cursor.py` to enact movement.
+
+The system will begin reading EEG data and translating it into cursor movements automatically.
 
 ---
 
 ## 🧩 Architecture Diagram
 
 ```
-[Hardware Input] → Arduino (Hackcode.ino) → Serial → Python (cursor_control)
+[EEG Headset] → Arduino (Hackcode.ino) → Serial → Python (cursor_control)
         └─> cursor_control → cursor.py → moves cursor
-                          └─> gui.py ← user controls & monitor
+                          └─> gui.py ← monitors system
 ```
-
----
-
-## 🛠 Extending the System
-
-- **Firmware enhancements**: Add new sensors or input types in `Hackcode.ino`
-- **Algorithm tweaks**: Modify `cursor_control.py` to interpret inputs differently
-- **UI improvements**: Adapt `gui.py` for calibration tools, feedback, or additional toggles
-- **Platform support**: Adjust `cursor.py` to support different OSes or alternate GUI frameworks
 
 ---
 
 ## 📋 Future Roadmap
 
-- Support gesture or pressure-based input
-- Add configuration profiles (e.g., sensitivity presets)
-- Enable multi-platform packaging (Windows/Mac/Linux installer)
-
----
-
-## 🤝 Contribution
-
-1. Fork the repo
-2. Create a topic branch: `feature/my-feature`
-3. Make changes & commit with clear messages
-4. Open a Pull Request explaining your enhancement
-5. Maintain consistent coding style and run basic tests
-6. Join HackPrix community discussions for feature alignment
+- Control car stereo and smart systems via thought
+- Applications for physically challenged individuals, especially paralysis patients
 
 ---
 
 ## 🛡️ License
 
-This project is currently unlicensed. Please open an issue or PR to add licensing.
+This project is for demonstration and research purposes only.  
+**Use and reproduction are not permitted without explicit consent from the creator.**
 
 ---
 
 ## 📞 Contact
 
-For more info, help, or sponsorship:
+For queries, collaborations, or further details:
 - Open an issue
 - Tag @shuj4 on GitHub
